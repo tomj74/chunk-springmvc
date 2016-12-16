@@ -1,0 +1,171 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.x5dev</groupId>
+  <artifactId>chunk-springmvc</artifactId>
+  <packaging>jar</packaging>
+  <version>0.1.0</version>
+  <name>Chunk Templates for Spring MVC</name>
+  <description>Chunk Templates plugin for Spring MVC framework</description>
+  <url>http://www.x5software.com/chunk/wiki/Spring_MVC</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <url>scm:git:git@github.com:tomj74/chunk-springmvc.git</url>
+    <connection>scm:git:git@github.com:tomj74/chunk-springmvc.git</connection>
+    <developerConnection>scm:git:git@github.com:tomj74/chunk-springmvc.git</developerConnection>
+  </scm>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.x5dev</groupId>
+      <artifactId>chunk-templates</artifactId>
+      <version>[3.2.4,4.0.0)</version>
+    </dependency>
+    <dependency>
+	  <groupId>javax.servlet</groupId>
+	  <artifactId>servlet-api</artifactId>
+	  <version>2.5</version>
+	  <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>4.1.5.RELEASE</version>
+	  <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>4.1.5.RELEASE</version>
+	  <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>4.1.5.RELEASE</version>
+	  <scope>compile</scope>
+    </dependency>
+  </dependencies>
+
+  <developers>
+    <developer>
+      <id>goredsoxgo</id>
+      <name>Tom McClure</name>
+      <email>tom@dagblastit.com</email>
+      <url>http://www.dagblastit.com/</url>
+      <organization>X5 Software</organization>
+      <organizationUrl>http://www.x5software.com/</organizationUrl>
+      <roles>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+      <timezone>-8</timezone>
+      <properties>
+        <picUrl>http://tinyurl.com/TomMcClureAvatar</picUrl>
+      </properties>
+    </developer>
+  </developers>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>2.0.4</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>2.3</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-compiler-plugin</artifactId>
+		<version>3.1</version>
+		<configuration>
+		  <source>1.5</source>
+		  <target>1.5</target>
+		</configuration>
+      </plugin>
+
+      <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-source-plugin</artifactId>
+		<executions>
+		  <execution>
+			<id>attach-sources</id>
+			<goals>
+			  <goal>jar</goal>
+			</goals>
+		  </execution>
+		</executions>
+      </plugin>
+
+      <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-javadoc-plugin</artifactId>
+		<executions>
+		  <execution>
+			<id>attach-javadocs</id>
+			<goals>
+			  <goal>jar</goal>
+			</goals>
+		  </execution>
+		</executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>release-sign-artifacts</id>
+      <activation>
+        <property>
+          <name>performRelease</name>
+          <value>true</value>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-gpg-plugin</artifactId>
+			<version>1.1</version>
+			<executions>
+			  <execution>
+			<id>sign-artifacts</id>
+			<phase>verify</phase>
+			<goals>
+			  <goal>sign</goal>
+			</goals>
+			  </execution>
+			</executions>
+		  </plugin>
+		</plugins>
+      </build>
+    </profile>
+  </profiles>
+
+</project>
