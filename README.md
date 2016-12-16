@@ -1,8 +1,8 @@
 # chunk-springmvc
 Chunk Templates for Spring MVC
 
-Facilitates swapping in the Chunk Template engine for Spring MVC projects
-in place of jsp or another template engine.
+Facilitates swapping in the [Chunk Template engine](https://github.com/tomj74/chunk-templates)
+for Spring MVC projects in place of jsp or another template engine.
 
 ### Quick start:
 
